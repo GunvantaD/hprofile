@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       -name: Testing Workflow
-       run: echo "Workflow workfs"
+       run: echo "Workflow works!"
          
