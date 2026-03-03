@@ -70,7 +70,16 @@ jobs:
             registry: ${{ secrets.REGISTRY }}
             repo: hprofile 
             region: ${{ env.AWS_REGION }}
-            tag: latest,${{github.run_number}}
+            tag: latest,${{ github.run_number}}
             daemon_off: false
             dockerfile: ./Dockerfile
             context: ./
+  DEPLOY:
+    runs-on: ubuntu-latest
+    needs: BUILD_AND_PUBLISH
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: Deploy to AWS ECS
+        
